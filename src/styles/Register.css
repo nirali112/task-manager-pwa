@@ -1,0 +1,83 @@
+/* Center the register form on the page */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Container for the register form */
+  .register-container {
+    background-color: white;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+  }
+  
+  /* Heading for the register form */
+  .register-container h2 {
+    margin: 0 0 20px;
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Style for the input fields */
+  .register-container input[type="email"],
+  .register-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  /* Style for the register button */
+  .register-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for the register button */
+  .register-container button:hover {
+    background-color: #218838;
+  }
+  
+  /* Error message styling */
+  .register-container p {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  /* Style for link buttons (like Login) */
+  .register-container .link-button {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: #007bff;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  
+  .register-container .link-button:hover {
+    text-decoration: underline;
+  }
+  

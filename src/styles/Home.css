@@ -1,0 +1,68 @@
+/* General Page Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.home-container {
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.home-header h1 {
+  font-size: 36px;
+  color: #333;
+}
+
+.home-header .logout-button {
+  padding: 10px 20px;
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.home-header .logout-button:hover {
+  background-color: #c82333;
+}
+
+.home-main {
+  margin-top: 20px;
+}
+
+.home-main .add-task-button {
+  padding: 10px 20px;
+  background-color: #343a40;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.home-main .add-task-button:hover {
+  background-color: #23272b;
+}
