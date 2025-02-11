@@ -19,20 +19,30 @@ const Task = {
   // Method to find a task by its ID
   async findById(taskId) {
     const [rows] = await db.execute('SELECT * FROM tasks WHERE id = ?', [taskId]);
+    console.log("rows: " , rows);
     return rows.length > 0 ? rows[0] : null;
   },
 
   // Method to update a task's title, description, and status
   async update(taskId, title, description, status) {
-    await db.execute(
-      'UPDATE tasks SET title = ?, description = ?, status = ? WHERE id = ?',
-      [title, description, status, taskId]
-    );
+    try {
+      console.log("Updating task ID:", taskId, "with title:", title, "description:", description, "status:", status);
+      const [result] = await db.execute(
+        'UPDATE tasks SET title = ?, description = ?, status = ? WHERE id = ?',
+        [title, description, status, taskId]
+      );
+      console.log("Update result:", JSON.stringify(result));
+      return result;
+    } catch (err) {
+      console.error("Error updating task:", err);
+      throw err; // Re-throw the error so it can be handled by the controller
+    }
   },
 
   // Method to update a task's status only
   async updateStatus(taskId, status) {
-    await db.execute('UPDATE tasks SET status = ? WHERE id = ?', [status, taskId]);
+    const [result] =  await db.execute('UPDATE tasks SET status = ? WHERE id = ?', [status, taskId]);
+    return result;
   },
 
   // Method to delete a task

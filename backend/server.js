@@ -1,9 +1,9 @@
 require('dotenv').config(); // Load environment variables
 const express = require('express');
 const bodyParser = require('body-parser');
-const authRoutes = require('./src/routes/authRoutes'); // Auth routes (login, register)
-const taskRoutes = require('./src/routes/taskRoutes'); // Task routes if you have them
-const db = require('./src/config/db'); // MySQL connection
+const authRoutes = require('../src/routes/authRoutes'); // Auth routes (login, register)
+const taskRoutes = require('../src/routes/taskRoutes'); // Task routes if you have them
+const db = require('../src/config/db'); // MySQL connection
 const cors = require('cors'); // Import the cors middleware
 
 const app = express();

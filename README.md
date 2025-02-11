@@ -44,3 +44,65 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+
+<!-- Current Tech Stack Used in the Project
+Your Task Manager PWA is built using the following technologies:
+
+Frontend (React PWA)
+React.js (TypeScript) – Component-based UI for task management.
+React Router – For navigation between pages.
+CSS Modules – For styling (AddTask.css, Home.css, etc.).
+Service Workers – To enable offline support (PWA functionality).
+IndexedDB / Cache API (Planned) – For caching data and offline mode.
+Backend (Node.js & Express)
+Node.js & Express.js – Backend server handling API requests.
+MySQL – Relational database for storing tasks and user data.
+jsonwebtoken (JWT) – For authentication and protected routes.
+bcrypt – Password hashing for user security.
+CORS Middleware – Handling cross-origin requests.
+PWA Features
+Manifest.json – Defines the app as an installable Progressive Web App.
+Service Worker – Caching static assets for offline use.
+Background Sync (Planned) – For syncing tasks when reconnected.
+Project Progress: What’s Done & Pending?
+✅ Completed Features
+User Authentication (Login/Register)
+
+Uses JWT for secure authentication.
+Stores login tokens in localStorage.
+Task Management
+
+Create, Read, Update, Delete (CRUD) tasks.
+Task status (Pending, In Progress, Completed).
+Task list displayed on the home page.
+MySQL Database Integration
+
+User authentication & task storage.
+Proper database queries in task.js and user.js.
+Basic PWA Setup
+
+Service Worker (serviceWorker.ts added).
+Manifest.json for installability.
+Works as a Progressive Web App (PWA) but offline mode is not fully functional yet.
+🔧 Pending Features & Fixes
+Service Worker Fix
+
+Issue: The app does not fully work offline yet.
+Fix Needed: Ensure API responses and data are cached properly.
+Background Sync for Tasks (Optional)
+
+Store task changes offline and sync when online.
+UI Improvements
+
+Better button styling and task list UI.
+Improve dropdown for status selection.
+Deployment
+
+Deploy on Vercel, Netlify, or Firebase.
+Test on mobile devices as a PWA app.
+Project Description
+Task Manager PWA is a Progressive Web App that allows users to manage their tasks efficiently with full CRUD (Create, Read, Update, Delete) functionality. Users can register, log in, add tasks, edit tasks, mark them as completed, and delete them. The application uses a MySQL database for data storage and is built with a React frontend and Node.js backend.
+
+The PWA functionality aims to allow users to access their tasks even when offline, using Service Workers to cache essential resources. This makes it a lightweight, installable task management application for personal productivity. -->

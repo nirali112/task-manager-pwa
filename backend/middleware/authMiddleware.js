@@ -1,6 +1,9 @@
 const jwt = require('jsonwebtoken');
 
-const jwtSecret = "SuperSecret"; // Replace with your actual secret key
+// const jwtSecret = "SuperSecret"; // Replace with your actual secret key
+
+// In authController.js and authMiddleware.js
+const jwtSecret = process.env.JWT_SECRET || "SuperSecret";
 
 const authMiddleware = (req, res, next) => {
   const authHeader = req.header('Authorization');
