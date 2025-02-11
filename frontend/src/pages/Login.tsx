@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "../styles/Login.css";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../styles/Login.css';
 
 interface LoginProps {
   setIsAuthenticated: (auth: boolean) => void;
 }
 
 const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
@@ -17,26 +17,23 @@ const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
     setError(null);
 
     try {
-      const response = await fetch("http://localhost:3001/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+      const response = await fetch('http://localhost:3001/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
 
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem("token", data.token); // Store the token
+        localStorage.setItem('token', data.token);
         setIsAuthenticated(true); // Update authentication state
-        navigate("/"); // Redirect to home page
+        navigate('/'); // Redirect to home page
       } else {
         const errorData = await response.json();
-        setError(errorData.error || "An error occurred during login");
+        setError(errorData.error || 'An error occurred during login');
       }
     } catch (err) {
-      console.error("Error logging in:", err);
-      setError("An error occurred during login");
+      setError('An error occurred during login');
     }
   };
 
@@ -61,9 +58,6 @@ const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
         {error && <p className="error">{error}</p>}
         <button type="submit">Login</button>
       </form>
-      <Link to="/register" className="link-button">
-        Register
-      </Link>
     </div>
   );
 };

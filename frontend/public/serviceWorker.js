@@ -1,13 +1,10 @@
+const CACHE_NAME = 'task-manager-v1';
+const ASSETS = ['/', '/index.html', '/styles/main.css', '/scripts/main.js'];
+
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open('my-cache').then((cache) => {
-      return cache.addAll([
-        '/',
-        '/index.html',
-        '/styles/main.css',
-        '/scripts/main.js',
-        // Add other static assets here
-      ]);
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(ASSETS);
     })
   );
 });
@@ -15,13 +12,12 @@ self.addEventListener('install', (event) => {
 self.addEventListener('fetch', (event) => {
   const { request } = event;
 
-  // Only cache GET requests and avoid chrome-extension schemes
+  // Only cache GET requests and avoid unsupported schemes
   if (request.method === 'GET' && request.url.startsWith('http')) {
     event.respondWith(
       caches.match(request).then((response) => {
         return response || fetch(request).then((fetchResponse) => {
-          // Cache the response for future use
-          return caches.open('my-cache').then((cache) => {
+          return caches.open(CACHE_NAME).then((cache) => {
             cache.put(request, fetchResponse.clone());
             return fetchResponse;
           });

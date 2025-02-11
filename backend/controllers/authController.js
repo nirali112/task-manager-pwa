@@ -1,7 +1,6 @@
-const User = require('../../src/models/user');
+const User = require('../models/user');
 const jwt = require('jsonwebtoken');
-
-const jwtSecret = process.env.JWT_SECRET || "SuperSecret";
+const jwtSecret = process.env.JWT_SECRET || 'SuperSecret';
 
 exports.register = async (req, res) => {
   const { email, password } = req.body;

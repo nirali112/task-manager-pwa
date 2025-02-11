@@ -1,17 +1,8 @@
 const jwt = require('jsonwebtoken');
-
-// const jwtSecret = "SuperSecret"; // Replace with your actual secret key
-
-// In authController.js and authMiddleware.js
-const jwtSecret = process.env.JWT_SECRET || "SuperSecret";
+const jwtSecret = process.env.JWT_SECRET || 'SuperSecret';
 
 const authMiddleware = (req, res, next) => {
-  const authHeader = req.header('Authorization');
-  if (!authHeader) {
-    return res.status(401).json({ error: 'Access denied. No token provided.' });
-  }
-
-  const token = authHeader.split(' ')[1];
+  const token = req.header('Authorization')?.split(' ')[1];
   if (!token) {
     return res.status(401).json({ error: 'Access denied. No token provided.' });
   }

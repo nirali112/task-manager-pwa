@@ -1,21 +1,14 @@
-require('dotenv').config(); // Load environment variables
 const express = require('express');
-const bodyParser = require('body-parser');
-const authRoutes = require('../src/routes/authRoutes'); // Auth routes (login, register)
-const taskRoutes = require('../src/routes/taskRoutes'); // Task routes if you have them
-const db = require('../src/config/db'); // MySQL connection
-const cors = require('cors'); // Import the cors middleware
+const cors = require('cors');
+const authRoutes = require('./routes/authRoutes');
+const taskRoutes = require('./routes/taskRoutes');
+const db = require('./config/db'); // MySQL connection
+require('dotenv').config();
 
 const app = express();
-const port = 3001;
+app.use(cors());
+app.use(express.json());
 
-// Middleware
-app.use(bodyParser.json());
-
-// CORS configuration
-app.use(cors({
-  origin: 'http://localhost:3000', // Allow requests from this origin
-}));
 
 // Test database connection
 db.getConnection()
@@ -29,9 +22,10 @@ db.getConnection()
 
 // Routes
 app.use('/api/auth', authRoutes);
-app.use('/api', taskRoutes); // Use this if you have task routes
+app.use('/api/tasks', taskRoutes);
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
